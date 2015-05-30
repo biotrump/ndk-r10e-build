@@ -53,6 +53,7 @@ libs_in_ldflags := $(filter -l% %.so %.a,$(LOCAL_LDLIBS) $(LOCAL_LDFLAGS))
 
 # Remove the system libraries we know about from the warning, it's ok
 # (and actually expected) to link them with -l<name>.
+# Thomas, gfortran is added to clean warning!!!
 system_libs := \
     android \
     c \
@@ -79,7 +80,8 @@ system_libs := \
     ui \
     utils \
     mediandk \
-    atomic
+    atomic \
+    gfortran
 
 libs_in_ldflags := $(filter-out $(addprefix -l,$(system_libs)), $(libs_in_ldflags))
 
